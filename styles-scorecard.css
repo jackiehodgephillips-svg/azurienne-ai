@@ -1,0 +1,341 @@
+/* Azurienne AI — scorecard page styles */
+/* ========== SCORECARD PAGE ========== */
+.scorecard-page {
+  background: var(--sand);
+}
+
+.scorecard-main {
+  padding: 2.5rem 0 4rem;
+  min-height: calc(100vh - var(--header-h) - 120px);
+}
+
+.scorecard-wrap {
+  max-width: 720px;
+}
+
+.scorecard-intro h1 {
+  font-size: clamp(1.85rem, 4vw, 2.5rem);
+}
+
+.scorecard-lead {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.progress {
+  height: 6px;
+  background: rgba(11, 31, 51, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--azure), var(--seafoam));
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.progress-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 1.75rem;
+}
+
+.demo-banner {
+  background: #fff3cd;
+  border: 1px solid #e6d089;
+  color: #5c4b12;
+  padding: 0.85rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.score-panel {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.score-panel fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.form-row {
+  margin-bottom: 1.15rem;
+}
+
+.form-row label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+  color: var(--navy);
+}
+
+.req { color: var(--azure); }
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--navy);
+  background: var(--off-white);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--azure);
+  box-shadow: 0 0 0 3px rgba(42, 143, 196, 0.2);
+  background: var(--white);
+}
+
+.form-row textarea { resize: vertical; min-height: 88px; }
+
+.scale-hint {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--azure-soft);
+  border-radius: 10px;
+}
+
+.q-block {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.q-block:last-of-type { border-bottom: none; }
+
+.q-text {
+  font-size: 0.98rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  color: var(--navy-deep);
+}
+
+.q-num { color: var(--azure); margin-right: 0.25rem; }
+
+.likert {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.likert label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 3rem;
+  padding: 0.45rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: var(--off-white);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.likert label:hover {
+  border-color: var(--azure);
+}
+
+.likert input {
+  accent-color: var(--azure);
+}
+
+.likert label:has(input:checked) {
+  background: rgba(42, 143, 196, 0.12);
+  border-color: var(--azure);
+  color: var(--navy);
+}
+
+.panel-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+/* Results */
+.results-header {
+  margin-bottom: 2rem;
+}
+
+.results-greeting {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--navy);
+  margin-bottom: 1.25rem;
+}
+
+.score-ring-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.score-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background:
+    conic-gradient(var(--azure) 0 68%, rgba(11, 31, 51, 0.1) 0);
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.score-ring::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.score-ring-value {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.score-caption {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin: 0 0 0.25rem;
+}
+
+.score-band {
+  font-weight: 600;
+  margin: 0;
+  color: var(--navy);
+}
+
+.lever-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.lever-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.35rem;
+}
+
+.lever-top h3 {
+  font-size: 1rem;
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.lever-top span {
+  font-weight: 700;
+  color: var(--azure);
+}
+
+.lever-bar {
+  height: 8px;
+  background: rgba(11, 31, 51, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lever-bar span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--azure), var(--seafoam));
+  border-radius: 999px;
+}
+
+.insights-title {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+
+.badge-demo {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #fff3cd;
+  color: #5c4b12;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+}
+
+.insights {
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.insights li {
+  margin-bottom: 1rem;
+  color: var(--muted);
+}
+
+.insights li strong {
+  display: block;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.results-cta {
+  background: var(--off-white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.results-cta h3 { margin-bottom: 0.4rem; }
+.results-cta p { color: var(--muted); }
+.results-cta .panel-actions {
+  border-top: none;
+  padding-top: 0.5rem;
+  justify-content: flex-start;
+}
+
+/* Focus visible for a11y */
+:focus-visible {
+  outline: 2px solid var(--azure-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn, .progress-bar { transition: none; }
+}
