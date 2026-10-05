@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Take the Azurienne AI Yachting AI Scorecard — diagnose utilization, crew & guest ops, and revenue leakage." />
+  <title>Yachting AI Scorecard | Azurienne AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-scorecard.css" />
+</head>
+<body class="scorecard-page">
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="logo" href="index.html">Azurienne <span>AI</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="index.html#value">What we measure</a></li>
+        <li><a href="index.html#how">How it works</a></li>
+        <li><a class="btn btn-primary btn-nav" href="scorecard.html">Scorecard</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="scorecard-main">
+    <div class="container scorecard-wrap">
+      <div class="scorecard-intro" id="scorecard-progress-region">
+        <p class="eyebrow">Yachting AI Scorecard</p>
+        <h1 id="step-title">Let’s start with you</h1>
+        <p class="scorecard-lead" id="step-lead">A few details so we can tailor your readout. Then 12 best-practice questions and 5 qualifying prompts.</p>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Scorecard progress">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <p class="progress-label" id="progress-label">Step 1 of 4 — Contact</p>
+      </div>
+
+      <!-- DEMO BANNER for results -->
+      <div class="demo-banner hidden" id="demo-banner" role="status">
+        <strong>Test / demo results.</strong> Personalized scoring would appear here in a live build. The sample below is illustrative.
+      </div>
+
+      <!-- STEP 1: Contact capture -->
+      <form class="score-panel" id="panel-contact" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Your details</legend>
+          <div class="form-row">
+            <label for="fullName">Full name <span class="req">*</span></label>
+            <input type="text" id="fullName" name="fullName" autocomplete="name" required placeholder="Alex Morgan" />
+          </div>
+          <div class="form-row">
+            <label for="email">Email <span class="req">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required placeholder="you@company.com" />
+          </div>
+          <div class="form-row">
+            <label for="role">Your role <span class="req">*</span></label>
+            <select id="role" name="role" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="owner">Yacht owner</option>
+              <option value="charter-manager">Charter / management company</option>
+              <option value="captain">Captain / crew leadership</option>
+              <option value="broker">Broker</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="vessel">Vessel or company (optional)</label>
+            <input type="text" id="vessel" name="vessel" placeholder="M/Y Azure Dream / Blue Horizon Charter" />
+          </div>
+        </fieldset>
+        <div class="panel-actions">
+          <button type="submit" class="btn btn-primary">Continue to questions</button>
+        </div>
+      </form>
+
+      <!-- STEP 2: Best-practice questions (12) -->
+      <form class="score-panel hidden" id="panel-questions" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Best-practice questions</legend>
+          <p class="scale-hint">Rate each statement from 1 (rarely / not true) to 5 (consistently true for us).</p>
+
+          <div class="q-block" data-q="1">
+            <p class="q-text"><span class="q-num">1.</span> Inquiry responses go out within a few hours — even on weekends in season.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 1">
+              <label><input type="radio" name="q1" value="1" required /> 1</label>
+              <label><input type="radio" name="q1" value="2" /> 2</label>
+              <label><input type="radio" name="q1" value="3" /> 3</label>
+              <label><input type="radio" name="q1" value="4" /> 4</label>
+              <label><input type="radio" name="q1" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="2">
+            <p class="q-text"><span class="q-num">2.</span> We know our peak-season vacant days before the season starts — and have a plan for each gap.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 2">
+              <label><input type="radio" name="q2" value="1" required /> 1</label>
+              <label><input type="radio" name="q2" value="2" /> 2</label>
+              <label><input type="radio" name="q2" value="3" /> 3</label>
+              <label><input type="radio" name="q2" value="4" /> 4</label>
+              <label><input type="radio" name="q2" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="3">
+            <p class="q-text"><span class="q-num">3.</span> Charter quotes are consistent, priced with clear logic, and rarely renegotiated from scratch.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 3">
+              <label><input type="radio" name="q3" value="1" required /> 1</label>
+              <label><input type="radio" name="q3" value="2" /> 2</label>
+              <label><input type="radio" name="q3" value="3" /> 3</label>
+              <label><input type="radio" name="q3" value="4" /> 4</label>
+              <label><input type="radio" name="q3" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="4">
+            <p class="q-text"><span class="q-num">4.</span> Guest preferences from past charters are captured once and reused for every future booking.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 4">
+              <label><input type="radio" name="q4" value="1" required /> 1</label>
+              <label><input type="radio" name="q4" value="2" /> 2</label>
+              <label><input type="radio" name="q4" value="3" /> 3</label>
+              <label><input type="radio" name="q4" value="4" /> 4</label>
+              <label><input type="radio" name="q4" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="5">
+            <p class="q-text"><span class="q-num">5.</span> Crew handovers and charter checklists are complete, current, and not dependent on one person’s memory.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 5">
+              <label><input type="radio" name="q5" value="1" required /> 1</label>
+              <label><input type="radio" name="q5" value="2" /> 2</label>
+              <label><input type="radio" name="q5" value="3" /> 3</label>
+              <label><input type="radio" name="q5" value="4" /> 4</label>
+              <label><input type="radio" name="q5" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="6">
+            <p class="q-text"><span class="q-num">6.</span> Provisioning and guest requests rarely generate last-minute chaos or APA surprises.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 6">
+              <label><input type="radio" name="q6" value="1" required /> 1</label>
+              <label><input type="radio" name="q6" value="2" /> 2</label>
+              <label><input type="radio" name="q6" value="3" /> 3</label>
+              <label><input type="radio" name="q6" value="4" /> 4</label>
+              <label><input type="radio" name="q6" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="7">
+            <p class="q-text"><span class="q-num">7.</span> We actively measure guest satisfaction and know what drives repeats and referrals.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 7">
+              <label><input type="radio" name="q7" value="1" required /> 1</label>
+              <label><input type="radio" name="q7" value="2" /> 2</label>
+              <label><input type="radio" name="q7" value="3" /> 3</label>
+              <label><input type="radio" name="q7" value="4" /> 4</label>
+              <label><input type="radio" name="q7" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="8">
+            <p class="q-text"><span class="q-num">8.</span> Ancillary revenue (toys, experiences, upgrades) is pitched systematically — not left to chance.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 8">
+              <label><input type="radio" name="q8" value="1" required /> 1</label>
+              <label><input type="radio" name="q8" value="2" /> 2</label>
+              <label><input type="radio" name="q8" value="3" /> 3</label>
+              <label><input type="radio" name="q8" value="4" /> 4</label>
+              <label><input type="radio" name="q8" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="9">
+            <p class="q-text"><span class="q-num">9.</span> Broker handoffs include full context — preferences, constraints, and commercial terms — so nothing is lost in translation.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 9">
+              <label><input type="radio" name="q9" value="1" required /> 1</label>
+              <label><input type="radio" name="q9" value="2" /> 2</label>
+              <label><input type="radio" name="q9" value="3" /> 3</label>
+              <label><input type="radio" name="q9" value="4" /> 4</label>
+              <label><input type="radio" name="q9" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="10">
+            <p class="q-text"><span class="q-num">10.</span> We can see cost and margin by charter without reconstructing it from email and receipts.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 10">
+              <label><input type="radio" name="q10" value="1" required /> 1</label>
+              <label><input type="radio" name="q10" value="2" /> 2</label>
+              <label><input type="radio" name="q10" value="3" /> 3</label>
+              <label><input type="radio" name="q10" value="4" /> 4</label>
+              <label><input type="radio" name="q10" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="11">
+            <p class="q-text"><span class="q-num">11.</span> Critical ops knowledge lives in shared systems — not only in WhatsApp chats or one crew member’s head.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 11">
+              <label><input type="radio" name="q11" value="1" required /> 1</label>
+              <label><input type="radio" name="q11" value="2" /> 2</label>
+              <label><input type="radio" name="q11" value="3" /> 3</label>
+              <label><input type="radio" name="q11" value="4" /> 4</label>
+              <label><input type="radio" name="q11" value="5" /> 5</label>
+            </div>
+          </div>
+
+          <div class="q-block" data-q="12">
+            <p class="q-text"><span class="q-num">12.</span> We already use (or are actively piloting) modern tools / AI to draft replies, briefings, or guest plans.</p>
+            <div class="likert" role="radiogroup" aria-label="Question 12">
+              <label><input type="radio" name="q12" value="1" required /> 1</label>
+              <label><input type="radio" name="q12" value="2" /> 2</label>
+              <label><input type="radio" name="q12" value="3" /> 3</label>
+              <label><input type="radio" name="q12" value="4" /> 4</label>
+              <label><input type="radio" name="q12" value="5" /> 5</label>
+            </div>
+          </div>
+        </fieldset>
+        <div class="panel-actions">
+          <button type="button" class="btn btn-ghost" id="back-to-contact">Back</button>
+          <button type="submit" class="btn btn-primary">Continue to Big 5</button>
+        </div>
+      </form>
+
+      <!-- STEP 3: Big 5 qualifying -->
+      <form class="score-panel hidden" id="panel-big5" novalidate>
+        <fieldset>
+          <legend class="visually-hidden">Big 5 qualifying questions</legend>
+
+          <div class="form-row">
+            <label for="big5-situation">1. Current situation — What’s true about your yacht ops right now? <span class="req">*</span></label>
+            <textarea id="big5-situation" name="situation" rows="3" required placeholder="e.g. We charter 12–14 weeks, but inquiries pile up in WhatsApp and we lose deals when the captain is offshore…"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="big5-outcome">2. 90-day desired outcome — What would “winning” look like in the next 90 days? <span class="req">*</span></label>
+            <textarea id="big5-outcome" name="outcome" rows="3" required placeholder="e.g. Every inquiry answered in under 2 hours, guest prefs in one place, and a clear view of vacant weeks…"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="big5-obstacle">3. Biggest obstacle — What’s in the way? <span class="req">*</span></label>
+            <textarea id="big5-obstacle" name="obstacle" rows="3" required placeholder="e.g. Tools are scattered, crew turnover, no time to implement another system…"></textarea>
+          </div>
+
+          <div class="form-row">
+            <label for="big5-solution">4. Preferred solution type — How do you usually like to solve this? <span class="req">*</span></label>
+            <select id="big5-solution" name="solution" required>
+              <option value="" disabled selected>Select one</option>
+              <option value="diy">DIY / improve what we have</option>
+              <option value="advisory">Advisory / fractional ops help</option>
+              <option value="software">Software / AI platform</option>
+              <option value="done-for-you">Done-for-you / managed service</option>
+              <option value="unsure">Not sure yet — open to guidance</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="big5-open">5. Open box — Anything else we should know?</label>
+            <textarea id="big5-open" name="open" rows="3" placeholder="Fleet size, regions, seasonality, must-haves, hard nos…"></textarea>
+          </div>
+        </fieldset>
+        <div class="panel-actions">
+          <button type="button" class="btn btn-ghost" id="back-to-questions">Back</button>
+          <button type="submit" class="btn btn-primary">See my score</button>
+        </div>
+      </form>
+
+      <!-- STEP 4: Results (static placeholder demo) -->
+      <section class="score-panel results-panel hidden" id="panel-results" aria-live="polite">
+        <div class="results-header">
+          <p class="results-greeting" id="results-greeting">Here’s your sample readout</p>
+          <div class="score-ring-wrap">
+            <div class="score-ring" aria-hidden="true">
+              <span class="score-ring-value" id="score-value">68</span>
+            </div>
+            <div>
+              <p class="score-caption">Sample AI-ops maturity score</p>
+              <p class="score-band" id="score-band">Developing — solid foundation, clear gaps</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lever-scores">
+          <div class="lever">
+            <div class="lever-top">
+              <h3>Charter utilization</h3>
+              <span id="lever-util">62</span>
+            </div>
+            <div class="lever-bar"><span style="width:62%"></span></div>
+          </div>
+          <div class="lever">
+            <div class="lever-top">
+              <h3>Crew & guest ops</h3>
+              <span id="lever-ops">74</span>
+            </div>
+            <div class="lever-bar"><span style="width:74%"></span></div>
+          </div>
+          <div class="lever">
+            <div class="lever-top">
+              <h3>Revenue leakage</h3>
+              <span id="lever-rev">58</span>
+            </div>
+            <div class="lever-bar"><span style="width:58%"></span></div>
+          </div>
+        </div>
+
+        <h3 class="insights-title">Three priority insights <span class="badge-demo">Sample</span></h3>
+        <ol class="insights">
+          <li>
+            <strong>Response speed is leaving weeks on the table.</strong>
+            When inquiries sit in fragmented channels, peak-season gaps stay empty. Centralize replies and set a hard SLA — AI can draft first responses so humans only polish.
+          </li>
+          <li>
+            <strong>Guest memory is your unfair advantage — if it’s written down.</strong>
+            Preference reuse separates “nice boat” from “they already know us.” Capture once; brief every charter automatically.
+          </li>
+          <li>
+            <strong>Margin leaks hide in APA and handoffs.</strong>
+            Without per-charter cost visibility and clean broker context, revenue leakage compounds quietly. Fix the handoff before you buy another marketing channel.
+          </li>
+        </ol>
+
+        <div class="img-placeholder img-results" role="img" aria-label="Personalized results dashboard placeholder">
+          <span class="img-label">Personalized results dashboard</span>
+          <span class="img-hint">Replace with live scored UI later</span>
+        </div>
+
+        <div class="results-cta">
+          <h3>Next step</h3>
+          <p>In a live build, this would unlock a tailored briefing or pilot conversation. For this test site, book a demo conversation or return to the landing page.</p>
+          <div class="panel-actions">
+            <a class="btn btn-primary" href="mailto:hello@azurienne.ai?subject=Azurienne%20AI%20Scorecard%20follow-up">Book a follow-up</a>
+            <a class="btn btn-ghost" href="index.html">Back to home</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">Azurienne <span>AI</span></a>
+        <p>Yachting AI · Scorecard funnel test site</p>
+      </div>
+      <p class="footer-note">© 2026 Azurienne AI. Test / demo — answers stay in your browser only.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
